@@ -1,0 +1,10 @@
+Options -Indexes
+
+RewriteEngine On
+
+# Servir les ressources statiques depuis le dossier assets/ (à la racine du projet)
+RewriteRule ^assets/(.*)$ ../assets/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
